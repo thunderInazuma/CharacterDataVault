@@ -271,6 +271,8 @@ function createGapOjisanFomData() {
 	obj["hikari"] = document.getElementById("hikari").value;
 	// 闇
 	obj["yami"] = document.getElementById("yami").value;
+	// 結
+	obj["musubi"] = document.getElementById("musubi").value;
 	// 出自
 	obj["syutuji"] = document.getElementById("syutuji").value;
 	// 経験点
@@ -309,6 +311,8 @@ function whiteGapojisanData(data) {
 	document.getElementById("hikari").value = tableData["hikari"];
 	// 闇
 	document.getElementById("yami").value = tableData["yami"];
+	// 結
+	document.getElementById("musubi").value = typeof tableData["musubi"] !=='undefined' ? tableData["musubi"] :'';
 	// 出自
 	document.getElementById("syutuji").value = tableData["syutuji"];
 	// 経験点

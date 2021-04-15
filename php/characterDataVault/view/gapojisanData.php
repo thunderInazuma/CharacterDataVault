@@ -26,9 +26,9 @@ if (isset ( $_GET ["id"] )) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="jp">
 <head>
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="../favicon/favicon.ico">
 <meta charset="UTF-8">
 <title>ギャップおじさん新規作成</title>
 <link rel="stylesheet" type="text/css" href="../css/gapojisan.css">
@@ -102,6 +102,10 @@ if (isset ( $_GET ["id"] )) {
 				<td><input type="text" class="mainData" id="yami"></td>
 			</tr>
 			<tr>
+				<td>結</td>
+				<td><input type="text" class="mainData" id="musubi"></td>
+			</tr>
+			<tr>
 				<td>経験点</td>
 				<td><input type="text" class="mainData" id="exp"></td>
 			</tr>
@@ -109,39 +113,18 @@ if (isset ( $_GET ["id"] )) {
 				<td></td>
 				<td></td>
 			</tr>
-			<!--
-<tr>
-<td>どどんとふ連携URL</td>
-<td><input type="text" class="mainData"></td>
-</tr>
-<tr>
-<td>部屋No.</td>
-<td><input type="text" class="mainData"></td>
-</tr>
-<tr>
-<td>部屋パスワード</td>
-<td><input type="text" class="mainData"></td>
-</tr>
-<tr>
-<td></td>
-<td><button>コマ作成</button></td>
-</tr>
--->
 		</table>
 		<table border="1" cellspacing="0">
 			<tr>
 				<td>キャラクター画像 画像をドロップ</td>
 			</tr>
 			<tr>
-				<td rowspan="4" valign="top"><div id="drop_area"
-						style="width: 230px; height: 230px; background: #bce2e8;">
-						<?php
-
-						if ($imageId != "") {
+				<td rowspan="4" valign="top">
+					<div id="drop_area" style="width: 230px; height: 230px; background: #bce2e8;">
+						<?php if ($imageId != "") {
 							echo "<img src=\"../../controller/dispImage.php?imageId=" . $imageId . "\">";
-						}
-						?>
-						</div>
+						} ?>
+					</div>
 
 			</tr>
 		</table>

@@ -5,15 +5,15 @@ require_once dirname ( __FILE__ ) . '/../../util/ThunderUtil.php';
 header ( 'Content-Type: text/html; charset=UTF-8' );
 ?>
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="jp">
+<link rel="shortcut icon" href="../favicon/favicon.ico">
 <meta charset="UTF-8">
 <title>ギャップおじさんキャラシ保管庫</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></link>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="../js/CharacterData.js"></script>
 <script src="../js/search.js"></script>
-<script src="../js/jquery.tablePagination.js"></script>
 <style type="text/css">
 .tablePagination {
 	padding-left: 0;
@@ -66,19 +66,19 @@ header ( 'Content-Type: text/html; charset=UTF-8' );
 			</tr>
 		</thead>
 		<tbody>
-	  <?php
+	<?php
 			$cDao = new CharacterDataVaultDao ();
 			$data = $cDao->sql ( "SELECT `id`, `plName`, `pcName` FROM `characterdatavault` WHERE `searchFlg` =0" );
 			foreach ( $data as $test ) :
 				?>
-  <tr>
+			<tr>
 				<td><?php echo htmlspecialchars($test->id);?></td>
 				<td><?php echo htmlspecialchars($test->plName);?></td>
 				<td><a
 					href="gapojisanData.php?id=<?php echo htmlspecialchars($test->id);?>"
 					target="_blank"><?php echo htmlspecialchars($test->pcName);?></a></td>
 			</tr>
-  <?php endforeach; ?>
+<?php endforeach; ?>
 </tbody>
 	</table>
 	<br /> 「編集NG」状態だと、表をクリックしても色が付きません

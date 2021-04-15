@@ -42,18 +42,15 @@ GapOjisanTRPGSearch.prototype.crateSearchTable = function(id, data) {
 	return this.CharacterData.createAnotherTable(id,
 			this.CharacterData.sytemData["anotherTable"]);
 };
-var options = {
-	perPage : 20,
-	initPage : 1, // 最初に表示するページ
-	optionsForRows : [ 1, 5, 10 ], // 表示する行数
-	rowsPerPage : 5
-// デフォルト表示行数
-};
 var table;
 var tableAPI = new GapOjisanTRPGSearch();
 $(document).ready(function() {
-
-	$('#table').tablePagination(options);
+	$.extend( $.fn.dataTable.defaults, { 
+		language: {
+			url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
+		}
+	});
+	$('#table').DataTable();
 	// $.ajax({
 	// type : "POST",
 	// url : "../../controller/loadAlldata.php",
