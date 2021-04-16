@@ -13,7 +13,7 @@ header ( 'Content-Type: text/html; charset=UTF-8' );
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"></link>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="../js/CharacterData.js"></script>
-<script src="../js/search.js"></script>
+<script src="../js/search.js?20210416"></script>
 <style type="text/css">
 .tablePagination {
 	padding-left: 0;
