@@ -51,7 +51,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST') {
 		if ($charaData ['imageChangeFlg'] == "true") {
 			// 画像を新しく保存した場合
 			$imageId = $charaData ['imageId'];
-			if ($charaData ['imageId'] == "") {
+			if ($charaData ['imageId'] == "" ||$charaData ['imageId'] == "undefined") {
 				$imageId = ThunderUtil::getUniqueId_img(); // ユニークキー取得
 			}
 			if (isset ( $_FILES ['upfile'] ['error'] ) && is_int ( $_FILES ['upfile'] ['error'] )) {
