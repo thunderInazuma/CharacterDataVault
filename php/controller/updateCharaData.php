@@ -51,8 +51,10 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST') {
 		if ($charaData ['imageChangeFlg'] == "true") {
 			// 画像を新しく保存した場合
 			$imageId = $charaData ['imageId'];
+			$is_insert = false;
 			if ($charaData ['imageId'] == "" ||$charaData ['imageId'] == "undefined") {
 				$imageId = ThunderUtil::getUniqueId_img(); // ユニークキー取得
+				$is_insert = true;
 			}
 			if (isset ( $_FILES ['upfile'] ['error'] ) && is_int ( $_FILES ['upfile'] ['error'] )) {
 				$imageEntity = new ImageSaveEntity();
@@ -64,7 +66,11 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST') {
 				$imageEntity->setImageData( file_get_contents($_FILES['upfile']['tmp_name']) );
 				// Daoを用意する
 				$imagePdo = new ImageSaveDao();
-				$imagePdo->update( $imageEntity );
+				if ($is_insert) {
+					$imagePdo->insert ( $imageEntity );
+				} else {
+					$imagePdo->update( $imageEntity );
+				}
 			}
 		}
 		$result = $cDao->update ( $cEntity );
