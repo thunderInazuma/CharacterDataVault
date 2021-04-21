@@ -34,7 +34,7 @@ if (isset ( $_GET ["id"] )) {
 <link rel="stylesheet" type="text/css" href="../css/gapojisan.css">
 <script type="text/javascript" src="../js/CharacterData.js"></script>
 <script type="text/javascript" src="../js/gapojisan.js"></script>
-<script type="text/javascript" src="../js/gapojisanSkill.js"></script>
+<script type="text/javascript" src="../js/gapojisanSkill.js?20210421"></script>
 </head>
 <body>
 	<input type="hidden" id="dataId" value="<?php echo $id;?>"></input>
