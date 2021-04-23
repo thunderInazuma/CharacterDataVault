@@ -3,9 +3,7 @@ var URL_BLANK_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAA
 // ドラッグアンドドロップで受け取るファイルのリスト
 // ------------------------------------------------------------
 var drop_file_list = new Array();
-// 匿名関数を即時実行
 (function() {
-
 	// ------------------------------------------------------------
 	// サポートチェック
 	// ------------------------------------------------------------
@@ -21,10 +19,6 @@ var drop_file_list = new Array();
 	// ------------------------------------------------------------
 	// "drop_area" という ID 属性のエレメントを取得する
 	var drop_area = document.getElementById("drop_area");
-
-	// "upfile" という ID 属性のエレメントを取得する
-	var upfile = document.getElementById("upfile");
-
 	// ------------------------------------------------------------
 	// ドラッグ操作中に実行されるイベント（マウスカーソルが要素内に滞在中）
 	// ------------------------------------------------------------
@@ -89,30 +83,17 @@ var drop_file_list = new Array();
 			clearPass();
 		}
 	});
-	// "deleteData" 更新にイベントを割り付ける
-//	var deleteData = document.getElementById("deleteData");
-//	deleteData.addEventListener("click", function(e) {
-//		if(window.confirm('削除しますか？')){
-//			if(window.confirm('本当に削除しますか？')){
-//				//deleteData();
-//			}
-//		}
-//	});
-
 })();
 function createSubmitFormData() {
-
 	// ------------------------------------------------------------
 	// 空の FormData オブジェクトを作成する
 	// ------------------------------------------------------------
 	var formData = new FormData();
-
 	// ------------------------------------------------------------
 	// ドラッグアンドドロップで受け取ったファイルリスト
 	// ------------------------------------------------------------
-	var i;
 	var num = drop_file_list.length;
-	for (i = 0; i < num; i++) {
+	for (var i = 0; i < num; i++) {
 		// File オブジェクトを取得する
 		var file = drop_file_list[i];
 		// 送信データを追加する
