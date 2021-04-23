@@ -285,11 +285,12 @@ function createGapOjisanFomData() {
 function saveAfter(data) {
 	window.history.pushState('', '', 'gapojisanData.php?id=' + data["id"]);
 	var charaDataName = document.getElementById("charaDataName");
-	charaDataName.innerText = "キャラ名 : "
-			+ document.getElementById("pcName").value;
+	charaDataName.innerText = "キャラ名 : "+ document.getElementById("pcName").value;
 	// id imageIdをhiddenにセット
 	document.getElementById("dataId").value = data["id"];
-	document.getElementById("imageId").value = data["imageId"];
+	if (data["imageId"]) {
+		document.getElementById("imageId").value = data["imageId"];
+	}
 	document.title = document.getElementById("pcName").value;
 	document.getElementById("updateSave").hidden = false;
 
@@ -301,12 +302,9 @@ function saveAfter(data) {
 function whiteGapojisanData(data) {
 	document.getElementById("plName").value = data["plName"];
 	document.getElementById("pcName").value = data["pcName"];
-	//document.getElementById("password").value = data["password"];
 	document.getElementById("searchFlg").checked = (data["searchFlg"] == "1");
 	document.title = data["pcName"];
-
 	var tableData =JSON.parse(data["data"]) ;
-
 	// 光
 	document.getElementById("hikari").value = tableData["hikari"];
 	// 闇
@@ -319,7 +317,7 @@ function whiteGapojisanData(data) {
 	document.getElementById("exp").value = tableData["exp"];
 	// 異能テーブル
 	inouTable.setData(tableData["inouTable"]);
-	//
+	// 日常テーブル
 	nitijouTable.setData(tableData["nitijouTable"]);
 	yoriTable.setData(tableData["yoriTable"]);
 	skillTable.setData(tableData["skillTable"]);

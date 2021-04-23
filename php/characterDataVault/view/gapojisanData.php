@@ -204,7 +204,7 @@ if (isset ( $_GET ["id"] )) {
 			href="http://inazuma-project.raindrop.jp/wordPress_inazuma/2017/02/23/%E3%82%AE%E3%83%A3%E3%83%83%E3%83%97%E3%81%8A%E3%81%98%E3%81%95%E3%82%93trpg%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC%E4%BF%9D%E7%AE%A1%E5%BA%AB%E3%82%92%E4%BD%9C%E3%82%8D/">
 			InazumaProject 作った人のホームページ</a>
 	</div>
-	<script type="text/javascript" src="../js/fileUpload.js?20210416"></script>
+	<script type="text/javascript" src="../js/fileUpload.js?20210424"></script>
 	<script type="text/javascript">
 				function inputData() {
 				<?php
