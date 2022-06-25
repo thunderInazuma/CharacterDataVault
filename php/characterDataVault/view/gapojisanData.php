@@ -34,7 +34,7 @@ if (isset ( $_GET ["id"] )) {
 <link rel="stylesheet" type="text/css" href="../css/gapojisan.css">
 <script type="text/javascript" src="../js/CharacterData.js"></script>
 <script type="text/javascript" src="../js/gapojisan.js"></script>
-<script type="text/javascript" src="../js/gapojisanSkill.js?20210421"></script>
+<script type="text/javascript" src="../js/gapojisanSkill.js?20220625"></script>
 </head>
 <body>
 	<input type="hidden" id="dataId" value="<?php echo $id;?>"></input>
@@ -61,6 +61,7 @@ if (isset ( $_GET ["id"] )) {
 <!-- 					<li><a href="search.php">保管庫Topに戻る</a></li> -->
 					<!-- <li><a>保管庫TOPに戻る</a></li> -->
 <!-- 				</ul></li> -->
+					<li id="clipboardBtn"><a>ココフォリア連携</a></li>
 					<li id="newSave"><a>新規保存(複製して保存)</a></li>
 					<li id="updateSave" hidden="hidden"><a>更新</a></li>
 					<li><a href="search.php">保管庫Topに戻る</a></li>
@@ -122,7 +123,7 @@ if (isset ( $_GET ["id"] )) {
 				<td rowspan="4" valign="top">
 					<div id="drop_area" style="width: 230px; height: 230px; background: #bce2e8;">
 						<?php if ($imageId != "") {
-							echo "<img src=\"../../controller/dispImage.php?imageId=" . $imageId . "\">";
+							echo "<img id=\"imgTag\" src=\"../../controller/dispImage.php?imageId=" . $imageId . "\" imageId=\"" . $imageId . "\">";
 						} ?>
 					</div>
 

@@ -98,6 +98,38 @@ var drop_file_list = new Array();
 //			}
 //		}
 //	});
+	let clipboardBtn = document.getElementById("clipboardBtn");
+	clipboardBtn.onclick = () => {
+		let characterData = JSON.parse(createFormData());
+		let characterDetailData = JSON.parse(characterData['data']);
+		let iconUrl = document.getElementById("imgTag") ? `https://inazuma-project.raindrop.jp/php/controller/dispImage.php?imageId=${document.getElementById("imgTag").getAttribute("imageId")}`: null;
+		var text = JSON.stringify({
+			"kind": "character",
+			"data": {
+				"name" : characterData['pcName'],
+				"externalUrl" : location.href ,
+				"iconUrl": iconUrl ? iconUrl :undefined,
+				"memo" : characterDetailData['syutuji'],
+				"status" : [
+					{
+						label: '光',
+						value: characterDetailData['hikari'],
+					},
+					{
+						label: '闇',
+						value: characterDetailData['yami'],
+					},
+					{
+						label: '経験点',
+						value: characterDetailData['exp'],
+					},
+				],
+			}
+		});
+		navigator.clipboard.writeText(text).then(e => {
+		alert('クリップボードにコピーしました。\r\nココフォリアの画面でペーストするとキャラコマが配置できます。');
+		});
+	};
 
 })();
 function createSubmitFormData() {
